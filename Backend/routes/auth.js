@@ -12,12 +12,20 @@ const USER = mongoose.model("USER");
 //     res.send("hello");
 // });
 
-router.post("/signup", (req, res) => {
+router.post("/signup",  [
+    body("name").notEmpty(),
+    body("userName").notEmpty(),
+    body("email").isEmail(),
+    body("password").isLength({ min: 6 }),
+  ],(req, res) => {
     const { name, userName, email, password } = req.body;
     if (!name || !email || !userName || !password) {
         return res.status(422).json({ error: "Please add all the fields" });
     } 
-
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(422).json({ errors: errors.array() });
+    }
     USER.findOne({ $or: [{ email: email }, { userName: userName }] }).then(async (savedUser) => {
         if (savedUser) {
             return res.status(422).json({ error: "User already exists with that email or userName" });
