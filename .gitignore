@@ -7,4 +7,3 @@ frontend/node_modules/
 # Ignore Node.js generated folders in backend
 backend/node_modules/
 # keys
-backend/key.js
