@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { mongoUrl } from './key.js'; // Importing the MongoDB URL from keys.js
+import { mongoUrl } from './keys.js'; // Importing the MongoDB URL from keys.js
 import cors from 'cors';
 import './models/model.js'; // Importing the user model
 import './models/post.js'; // Importing the post model

@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
-import { Jwt_secret } from "../key.js";
+import { Jwt_secret } from "../keys.js";
 import requireLogin from "../middlewares/requireLogin.js";
 
 const router = express.Router();

@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { Jwt_secret } from "../key.js";
+import { Jwt_secret } from "../keys.js";
 import mongoose from "mongoose";
 const USER = mongoose.model("USER");
 
