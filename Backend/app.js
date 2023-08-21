@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 
 // Handle other routes and serve the index.html file for client-side routing
-app.get('/Frontend', (req, res) => {
+app.get('/frontend', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'), (err) => {
     if (err) {
       res.status(404).send('File not found'); // Return a 404 response if index.html is not found
