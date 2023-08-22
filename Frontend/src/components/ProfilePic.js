@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 // import { useHistory } from "react-router-dom";
+import {useNavigate} from react-router-dom;
 export default function ProfilePic({ changeprofile }) {
   const hiddenFileInput = useRef(null);
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
+  const navigate=useNavigate();
   // const history = useHistory();
   // posting image to cloudinary
   const postDetails = () => {
@@ -56,7 +58,8 @@ export default function ProfilePic({ changeprofile }) {
       .then((data) => {
         console.log(data);
         changeprofile();
-          window.location.reload();
+        navigate("/");
+          // window.location.reload();
         // history.push("/profile"); // Redirect to profile page
       })
       .catch((err) => console.log(err));
