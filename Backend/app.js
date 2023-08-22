@@ -13,7 +13,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const port = process.env.PORT|| 5001;
+const port = process.env.PORT|| 5000;
 
 // Enable CORS to handle cross-origin requests
 app.use(cors());
@@ -22,11 +22,11 @@ app.use(cors());
 app.use(express.json());
 
 // Serve static files from the frontend build folder
-app.use(express.static(path.join(__dirname, 'frontend', 'build')));
+app.use(express.static(path.join(__dirname,'..','Frontend', 'build')));
 
 // Handle other routes and serve the index.html file for client-side routing
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'), (err) => {
+app.get('/Frontend', (req, res) => {
+  res.sendFile(path.join(__dirname, '..','Frontend', 'build', 'index.html'), (err) => {
     if (err) {
       res.status(404).send('File not found'); // Return a 404 response if index.html is not found
     }

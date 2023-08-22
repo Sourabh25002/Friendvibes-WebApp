@@ -8,9 +8,9 @@ import requireLogin from "../middlewares/requireLogin.js";
 const router = express.Router();
 const USER = mongoose.model("USER");
 
-router.get('/', (req, res) => {
-    res.send("hello");
-});
+// router.get('/', (req, res) => {
+//     res.send("hello");
+// });
 
 router.post("/signup",(req, res) => {
     const { name, userName, email, password } = req.body;
