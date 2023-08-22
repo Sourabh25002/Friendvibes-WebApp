@@ -24,20 +24,19 @@ app.use(express.json());
 // Serve static files from the frontend build folder
 app.use(express.static(path.join(__dirname,'..','Frontend', 'build')));
 
+// Use the imported routes for authentication, creating posts, and user operations
+app.use(authRoutes);
+app.use(createPostRoutes);
+app.use(userRoutes);
+
 // Handle other routes and serve the index.html file for client-side routing
-app.get('/Frontend', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..','Frontend', 'build', 'index.html'), (err) => {
     if (err) {
       res.status(404).send('File not found'); // Return a 404 response if index.html is not found
     }
   });
 });
-
-
-// Use the imported routes for authentication, creating posts, and user operations
-app.use(authRoutes);
-app.use(createPostRoutes);
-app.use(userRoutes);
 
 // Connect to the MongoDB database using the provided URL
 mongoose.connect(mongoUrl ,{
