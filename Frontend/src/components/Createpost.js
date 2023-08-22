@@ -145,12 +145,12 @@ export default function Createpost() {
           console.log(result)
           
           setUser(result.user)
-         
+
         })
         .catch((error) => {
           console.error("Error fetching data:", error);
         });
-      fetch("/createPost", {
+      fetch(`/createPost`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
