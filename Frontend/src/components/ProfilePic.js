@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 // import { useHistory } from "react-router-dom";
-import {useNavigate} from react-router-dom;
+import {useNavigate} from "react-router-dom";
 export default function ProfilePic({ changeprofile }) {
   const hiddenFileInput = useRef(null);
   const [image, setImage] = useState("");
